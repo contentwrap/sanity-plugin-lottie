@@ -43,7 +43,8 @@
     "@lottiefiles/react-lottie-player": "^3.6.0",
     "@sanity/icons": "^3.7.4",
     "@sanity/incompatible-plugin": "^1.0.5",
-    "@sanity/ui": "^2.16.2"
+    "@sanity/ui": "^2.16.2",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2"
   },
   "devDependencies": {
     "@sanity/pkg-utils": "^7.8.10",

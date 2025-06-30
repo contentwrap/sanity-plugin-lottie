@@ -1,7 +1,7 @@
 import { Player } from '@lottiefiles/react-lottie-player';
 import { SpinnerIcon, WarningOutlineIcon } from '@sanity/icons';
 import { Box, Card, Flex, Stack, Text, useTheme } from '@sanity/ui';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useClient } from 'sanity';
 import styled from 'styled-components';
 
@@ -82,6 +82,7 @@ export function LottiePreview({
   const [frameRate, setFrameRate] = useState<number | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
   const [assetReady, setAssetReady] = useState(false);
+  const errorRef = useRef<string | null>(null);
 
   useEffect(() => {
     async function fetchAssetAndLottie() {
@@ -187,6 +188,10 @@ export function LottiePreview({
     }
   }, [error, onError]);
 
+  useEffect(() => {
+    errorRef.current = error;
+  }, [error]);
+
   if (error) {
     return (
       <Card tone="critical" padding={4} border radius={0}>
@@ -233,7 +238,7 @@ export function LottiePreview({
               setError(
                 'Not a valid Lottie file. Please upload a .json Lottie file.',
               );
-            } else if (error) {
+            } else if (errorRef.current !== null) {
               setError(null);
             }
           }}
