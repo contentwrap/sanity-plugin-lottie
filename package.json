@@ -9,7 +9,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/contentwrap/sanity-plugin-lottie"
+    "url": "git+https://github.com/contentwrap/sanity-plugin-lottie.git"
+  },
+  "homepage": "https://github.com/contentwrap/sanity-plugin-lottie#readme",
+  "bugs": {
+    "url": "https://github.com/contentwrap/sanity-plugin-lottie/issues"
   },
   "license": "MIT",
   "author": "ContentWrap <tamba@contentwrap.io>",
