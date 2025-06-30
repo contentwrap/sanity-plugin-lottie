@@ -1,15 +1,18 @@
 <div align="center">
   <h1>Sanity Lottie Plugin</h1>
-  <h3>A Sanity Studio v3 plugin to upload and preview Lottie `.json` animations in your Studio.</h3>
+  <h3>A Sanity plugin to upload and preview Lottie files in your studio.</h3>
   <p><em>Developed and maintained by <a href="https://contentwrap.io" target="_blank">ContentWrap</a></em></p>
 
   <img src="https://img.shields.io/npm/v/sanity-plugin-lottie" alt="Sanity Lottie Plugin" />
   <img src="https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white" alt="TypeScript" />
   <img src="https://img.shields.io/badge/Sanity-F03E2F?logo=sanity&logoColor=white" alt="Sanity" />
   <img src="https://img.shields.io/npm/l/sanity-plugin-lottie?style&color=5D6D7E" alt="GitHub license" />
-</div>
+  
+  <br>
+  <br>
 
-![Lottie Preview Demo](README.gif)
+  <img src="README.gif" alt="Lottie Preview Demo" />
+</div>
 
 ---
 
