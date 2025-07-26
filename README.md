@@ -85,7 +85,7 @@ export default defineType({
 
 ## Requirements
 
-- Sanity Studio v3
+- Sanity Studio v3 or v4
 - Lottie `.json` files (exported from After Effects or similar tools)
 
 ---

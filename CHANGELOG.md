@@ -34,6 +34,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Added
 
 - Initial release
-- Lottie `.json` upload and preview in Sanity Studio v3
+- Lottie `.json` upload and preview in Sanity Studio v3/v4
 - Animation info (duration, frame count, frame rate)
 - File validation for Lottie `.json` files
