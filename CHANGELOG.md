@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.4] - 2025-07-29
+
+### Fixed
+
+- Fixed React version compatibility to support both v18 and v19
+- Fixed dependency organization by moving `styled-components` to production dependencies
+- Fixed ESLint errors and code quality issues throughout the codebase
+- Fixed plugin naming consistency between internal name and package name
+
+### Added
+
+- Added comprehensive ESLint configuration with Sanity plugin standards
+- Added TypeScript build optimization with `noCheck` for faster builds
+- Added browserslist configuration extending Sanity's browser support standards
+
+### Improved
+
+- Improved code quality with proper type annotations and error handling
+- Improved build performance and development experience
+- Improved async polling logic for better reliability
+
 ## [1.0.3] - 2025-06-09
 
 ### Added

@@ -1,7 +1,7 @@
 import { Player } from '@lottiefiles/react-lottie-player';
 import { SpinnerIcon, WarningOutlineIcon } from '@sanity/icons';
 import { Box, Card, Flex, Stack, Text, useTheme } from '@sanity/ui';
-import React, { useEffect, useState, useRef } from 'react';
+import { type JSX, useEffect, useRef, useState } from 'react';
 import { useClient } from 'sanity';
 import styled from 'styled-components';
 
@@ -70,7 +70,7 @@ export function LottiePreview({
 }: {
   value: any;
   onError?: (err: string) => void;
-}) {
+}): JSX.Element {
   const client = useClient({ apiVersion: '2023-01-01' });
   const theme = useTheme();
   const scheme = theme?.sanity?.color?.dark ? 'dark' : 'light';
@@ -130,7 +130,7 @@ export function LottiePreview({
         setFrameRate(fr);
         setTotalFrames(totalFrameCount);
         setDuration(animDuration);
-      } catch (e) {
+      } catch {
         if (asset?.size === 0) {
           setError('File is empty. Please upload a valid .json Lottie file.');
         } else {
@@ -143,25 +143,27 @@ export function LottiePreview({
 
   useEffect(() => {
     let isMounted = true;
-    let pollTimeout: NodeJS.Timeout | null = null;
 
     async function pollForAsset() {
       setIsProcessing(true);
       let attempts = 0;
-      while (attempts < 10 && isMounted) {
+      while (attempts < 10) {
+        if (!isMounted) break;
         // Try to fetch asset metadata
         const assetDoc = await client.fetch(
           `*[_type == "sanity.fileAsset" && _id == $id][0]{url,originalFilename,size}`,
           { id: value?.asset?._ref },
         );
         if (assetDoc) {
-          setIsProcessing(false);
-          setError(null);
-          setAssetReady((r) => !r); // Toggle to trigger fetch
+          if (isMounted) {
+            setIsProcessing(false);
+            setError(null);
+            setAssetReady((r) => !r); // Toggle to trigger fetch
+          }
           return;
         }
-        // Wait 500ms before next attempt
-        await new Promise((res) => (pollTimeout = setTimeout(res, 200)));
+        // Wait 200ms before next attempt
+        await new Promise((resolve) => setTimeout(resolve, 200));
         attempts++;
       }
       if (isMounted) {
@@ -177,9 +179,8 @@ export function LottiePreview({
 
     return () => {
       isMounted = false;
-      if (pollTimeout) clearTimeout(pollTimeout);
     };
-  }, [value?.asset?._ref]);
+  }, [value?.asset?._ref, client, value?.asset?.url]);
 
   // Notify parent of error
   useEffect(() => {

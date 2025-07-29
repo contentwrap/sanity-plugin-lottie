@@ -1,4 +1,4 @@
-import React from 'react';
+import { type JSX } from 'react';
 import { FileInput, FileValue, ObjectInputProps } from 'sanity';
 
 import { LottiePreview } from './LottiePreview';
@@ -11,7 +11,7 @@ interface LottieInputProps extends ObjectInputProps<FileValue> {
 /**
  * @public
  */
-export const LottieInput = (props: LottieInputProps) => {
+export const LottieInput = (props: LottieInputProps): JSX.Element => {
   const value = props.value;
 
   return (
