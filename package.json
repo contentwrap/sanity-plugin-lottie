@@ -1,6 +1,6 @@
 {
   "name": "sanity-plugin-lottie",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Sanity plugin to preview Lottie animations",
   "keywords": [
     "sanity",
@@ -48,7 +48,8 @@
     "@sanity/icons": "^3.7.4",
     "@sanity/incompatible-plugin": "^1.0.5",
     "@sanity/ui": "^2.16.2",
-    "@trivago/prettier-plugin-sort-imports": "^5.2.2"
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
+    "styled-components": "^6.1.19"
   },
   "devDependencies": {
     "@sanity/pkg-utils": "^7.8.10",
@@ -67,15 +68,15 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "sanity": "^3.95.0",
-    "styled-components": "^6.1.19",
     "typescript": "^5.8.3"
   },
   "peerDependencies": {
-    "react": "^18",
+    "react": "^18 || ^19",
     "sanity": "^3"
   },
   "engines": {
     "node": ">=18"
   },
+  "browserslist": "extends @sanity/browserslist-config",
   "packageManager": "pnpm@9.15.1+sha512.1acb565e6193efbebda772702950469150cf12bcc764262e7587e71d19dc98a423dff9536e57ea44c49bdf790ff694e83c27be5faa23d67e0c033b583be4bfcf"
 }

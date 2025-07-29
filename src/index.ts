@@ -5,7 +5,10 @@ import { lottieType } from './lottieType';
 /**
  * @public
  */
-export interface LottiePreviewConfig {}
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+export interface LottiePreviewConfig {
+  // Future configuration options can be added here
+}
 
 /**
  * Usage in `sanity.config.ts` (or .js)
@@ -23,15 +26,13 @@ export interface LottiePreviewConfig {}
 /**
  * @public
  */
-export const lottiePreview = definePlugin<LottiePreviewConfig | void>(
-  (config = {}) => {
-    return {
-      name: 'sanity-plugin-lottie-preview',
-      schema: {
-        types: [lottieType],
-      },
-    };
-  },
-);
+export const lottiePreview = definePlugin<LottiePreviewConfig | void>(() => {
+  return {
+    name: 'sanity-plugin-lottie',
+    schema: {
+      types: [lottieType],
+    },
+  };
+});
 
 export { LottieInput } from './LottieInput';
