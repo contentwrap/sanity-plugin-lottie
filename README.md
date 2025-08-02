@@ -11,7 +11,7 @@
   <br>
   <br>
 
-  <img src="README.gif" alt="Lottie Preview Demo" />
+  <img src="demo.gif" alt="Lottie Preview Demo" />
 </div>
 
 ---
